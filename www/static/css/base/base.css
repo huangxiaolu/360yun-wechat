@@ -12,6 +12,9 @@ code{  padding: 2px 4px;font-size: 90%;color: #c7254e;background-color: #f9f2f4;
 .list .item h2{font-size: 24px;font-weight: normal;}
 .list .item p{line-height: 30px;margin-top: 10px}
 
+[ng-cloak] {
+    display: none;
+}
 header .logo {
   width: 50px;
   margin-left: 20px;

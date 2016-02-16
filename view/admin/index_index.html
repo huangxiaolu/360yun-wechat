@@ -2,17 +2,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>New ThinkJS Application</title>
-<link rel="stylesheet" href="/static/css/base/base.css">
+<title>管理后台</title>
+<link rel="stylesheet" href="/static/css/admin/index.css">
 </head>
 <body>
   <%include ../base/header%>
-  <div class="content">
-   <nav>
-   	<item>期刊</item>
-   	<item>每周分享</item>
-   	<item>推送消息</item>
-   </nav>
+  <div>
+  	<nav class="admin_nav">
+  		<ul>
+  			<li><a href="/admin/article">编辑期刊</a></li>
+  			<li><a href="/admin/share">每周分享</a></li>
+  			<li><a href="/admin/wechat">公众号消息</a></li>
+  		</ul>
+  	</nav>
   </div>
 </body>
 </html>
