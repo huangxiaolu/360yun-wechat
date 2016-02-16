@@ -9,11 +9,11 @@ export default {
   log_connect: true,
   adapter: {
     mysql: {
-      host: '127.0.0.1',
-      port: '3306',
+      host: '10.120.253.177',
+      port: '3474',
       database: 'share',
-      user: 'root',
-      password: '',
+      user: 'songguangyu',
+      password: 'Songguangyu2015',
       prefix: '360CTA_',
       encoding: 'utf8'
     },
