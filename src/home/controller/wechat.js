@@ -18,8 +18,7 @@ export default class extends Base {
     async textAction(){
          var message = this.post();
          var msg = message.Content.trim();
-         let socketlist = await thinkCache(thinkCache.WEBSOCKET);
-         console.log(socketlist);
+         let socketlist = thinkCache(thinkCache.WEBSOCKET);
          socketlist.forEach((item)=>{
            item.emit("messages", msg);
          })
