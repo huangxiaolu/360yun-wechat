@@ -14,11 +14,15 @@ export default class extends Base {
     reply(message){
         this.http.res.reply(message);
     }
-    textAction(){
+
+    async textAction(){
          var message = this.post();
          var msg = message.Content.trim();
-         this.reply('测试成功:'+msg);
-     }
+         let controllerInstance = this.controller("activity","");
+         controllerInstance.messages(msg);
+         this.reply('发送成功');
+    }
+
     voiceAction() { 
          this.reply('我听见你的声音，有种特别的感觉');
     } 

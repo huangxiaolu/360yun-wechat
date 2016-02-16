@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+  <title>360云盘后台打分系统</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/share.css">
+</head>
+<body>
+  <header>
+      <img src="/static/img/<%=scoreData.name%>.png">
+      <h1><%=scoreData.name%></h1>
+  </header>
+  <div id="result" class="result"></div>
+  <div class="main">
+    <ul>
+      <li>
+        1、今天的演讲是否有深度？
+        <select>
+          <option>0分</option>
+          <option>20分</option>
+          <option>30分</option>
+          <option>40分</option>
+          <option>50分</option>
+          <option>60分</option>
+          <option>70分</option>
+          <option>80分</option>
+          <option>90分</option>
+          <option>100分</option>
+        </select>
+      </li>
+      <li>
+        2、今天的演讲流畅度怎么样？
+        <select>
+          <option>0分</option>
+          <option>20分</option>
+          <option>30分</option>
+          <option>40分</option>
+          <option>50分</option>
+          <option>60分</option>
+          <option>70分</option>
+          <option>80分</option>
+          <option>90分</option>
+          <option>100分</option>
+        </select>
+      </li>
+      <li>
+        3、今天的演讲让你学到了知识吗？
+        <select>
+          <option>0分</option>
+          <option>20分</option>
+          <option>30分</option>
+          <option>40分</option>
+          <option>50分</option>
+          <option>60分</option>
+          <option>70分</option>
+          <option>80分</option>
+          <option>90分</option>
+          <option>100分</option>
+        </select>
+      </li>
+      <li>
+        4、开发系统的人帅不帅？
+        <select>
+          <option>0分</option>
+          <option>20分</option>
+          <option>30分</option>
+          <option>40分</option>
+          <option>50分</option>
+          <option>60分</option>
+          <option>70分</option>
+          <option>80分</option>
+          <option>90分</option>
+          <option>100分</option>
+        </select>
+      </li>
+      <li>
+        5、今天的演讲者是否很帅？
+        <select>
+          <option>0分</option>
+          <option>20分</option>
+          <option>30分</option>
+          <option>40分</option>
+          <option>50分</option>
+          <option>60分</option>
+          <option>70分</option>
+          <option>80分</option>
+          <option>90分</option>
+          <option>100分</option>
+        </select>
+      </li>
+    </ul>
+    <div class="remark">
+      对分享者的评价或想要了解的知识 <textarea type="text" id="remark"></textarea>
+    </div>
+    <div class="submit">
+        <button type="submit" class="btn btn-primary" id="submit">都填好了,我要提交了</button>
+    </div>
+
+  </div>
+
+
+</body>
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript">
+  var lock = 0;
+
+  $('select').change(function() {
+    lock = 1;
+  })
+
+  $('#submit').on('click',function() {
+    var count = 0;
+    $('select').each(function(i){
+      count += parseInt($(this).val());
+    });
+
+    if(lock === 0) {
+      alert('小伙，啥都没填，能不能不闹！！');
+      return;
+    }
+
+    $.ajax({
+      type: 'POST',
+      url: './makescore',
+      data: {
+        score: count/5,
+        remark: $('#remark').val()
+      },
+      dataType: 'json',
+      success: function(res){
+        if(res.errno === 0) {
+          $('#result').html('您的评分为：'+res.data.score+',目前总得分为：'+res.data.average+'')
+          alert('打分成功');
+        } else {
+          alert(res.errmsg);
+        }
+      }
+      
+    });
+  })
+  
+
+
+</script>
+</html>

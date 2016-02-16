@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="/static/css/wall.css">
+</head>
+<body>
+	<div id="main" class="main">
+
+	</div>
+</body>
+<script type="text/javascript" src="http://s0.qhimg.com/lib/jquery/1102.js"></script>
+<script type="text/javascript" src="http://s4.qhimg.com/static/535dde855bc726e2/socket.io-1.2.0.js"></script>
+<script type="text/javascript">
+	var socket = io("http://localhost:8900");
+	//发送事件
+	//socket.emit("messages", "data");
+
+
+	function Barrage(options) {
+		this.options = {
+			col: 'auto',
+			wrap: 'main',
+			size: 24,
+			spacing: 5,
+			color: 'random'
+		}
+		this.wrap = document.getElementById(this.options.wrap);
+		this.stashList  = [];
+		this.currentRow = 0;
+		this.init();
+		this.ulList = this.wrap.getElementsByTagName('ul');
+
+	}
+
+	Barrage.prototype.init = function() {
+		
+		var wrapHeight = this.wrap.clientHeight;
+		var wrapWidth = this.wrap.clientWidth;
+		this.listNum  = Math.floor(wrapHeight/(this.options.size+this.options.spacing));
+		console.log(this.listNum);
+		for(var i=0;i<this.listNum;i++) {
+			var ul = document.createElement('ul');
+			ul.style.height = this.options.size+'px';
+			ul.style.width = '100%'
+			this.wrap.appendChild(ul);
+		}
+
+	};
+
+	Barrage.prototype.createText = function(text) {
+		var li = document.createElement('li');
+		li.style.height = this.options.size+'px';
+		li.style.size = this.options.size+'px';
+		li.innerHTML = text;
+		li.timer = setTimeout(function() {
+			li.timer = null;
+			li.parentNode.removeChild(li);
+		},5500);
+
+		if(this.options.color) {
+			if(this.options.color == 'random') {
+				li.style.color = this.randomColor();
+			}
+			li.style.color = this.options.color
+		}
+
+		return li
+	}
+
+
+	Barrage.prototype.randomColor = function() {
+		return "#"+("00000"+((Math.random()*16777215+0.5)>>0).toString(16)).slice(-6); 
+	}
+
+	Barrage.prototype.dispatch = function() {
+		var li = this.createText(this.stashList.shift());
+		this.ulList[this.currentRow].appendChild(li);
+
+		if(this.currentRow < (this.listNum-1)) {
+			this.currentRow++
+		} else {
+			this.currentRow = 0;
+		}
+		
+	}
+
+	Barrage.prototype.push = function(text) {
+		this.stashList.push(text);
+		this.dispatch();
+	}
+
+	var barrage  = new Barrage();
+
+		//监听事件
+	socket.on("messages", function(data){
+		barrage.push(data);
+	})
+
+</script>
+</html>
