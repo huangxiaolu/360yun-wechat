@@ -1,0 +1,39 @@
+@import url('/static/css/rp.css');
+html{
+	height: 100%;
+}
+body{
+	background: url(/static/img/xingkong.jpg);
+	height: 100%;
+}
+.text1{
+	color: #ffffff;
+	font-size: 24px;
+}
+
+.main{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+
+.main li{
+	line-height: 24px;
+	color: #ffffff;
+	font-size: 24px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	animation: myfirst 6s forwards;
+	animation-timing-function: linear;
+	white-space:nowrap;
+}
+.main ul{
+	position: relative;
+}
+
+@keyframes myfirst
+{
+	from {right: -100px;}
+	to {right: 1300px;}
+}

@@ -1,0 +1,46 @@
+@import url('/static/css/rp.css');
+html{
+	height: 100%;
+}
+body{
+	height: 100%;
+	background: url(/static/img/yun.jpg) no-repeat;
+	background-size:cover;
+}
+header {
+	margin-top: 10px;
+	text-align:center
+}
+header h1{
+	margin: 10px 0;
+}
+header img{
+	width: 88px;
+	border-radius: 100%;
+}
+.result{ 
+	text-align: center;
+}
+
+.main li{
+	line-height: 40px;
+	height: 40px;
+	text-align: left;
+	padding-left: 30px;
+}
+
+.main .submit{
+	margin: 20px 0;
+	text-align: center;
+}
+
+.main .remark{
+	padding-left: 30px;
+}
+
+.main .remark textarea{
+	width: 250px;
+	height: 100px;
+	margin-top: 10px;
+	border: none;
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>360云盘后台打分系统</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/shareadmin.css">
+</head>
+<body>
+  <header>
+      <h1>后台打分系统</h1>
+  </header>
+  <div class="fill">
+    <div class="form-group">
+      <h3>今日分享人姓名</h3>
+      姓名：<input type="email" class="form-control" id="name" placeholder="请输入姓名">
+      第几期：<input type="number" class="form-control" id="number" placeholder="第几轮分享" value="1">
+      <button type="submit" class="btn btn-primary" id="submit">提交</button>
+    </div>
+  </div>
+
+  <div class="menu">
+    <h3>分享小组名单</h3>
+    <ul>
+      <%userData.forEach(function(item){%>
+          <li><span>姓名：<%=item.name%></span>序号：<%=item.rank%> 得分：<%=item.score%></li>
+      <%})%>
+    </ul>
+  </div>
+  <table class="table">
+    
+  </table>
+</body>
+<script type="text/javascript" src="/static/js/jquery.js"></script>
+<script type="text/javascript">
+  $('#submit').on('click',function() {
+    $.ajax({
+      type: 'POST',
+      url: './currentshare',
+      data: {
+        name: $('#name').val(),
+        number: $('#number').val()
+      },
+      dataType: 'json',
+      success: function(res){
+        if(res.errno === 0) {
+          alert('添加成功');
+        } else {
+          alert(res.errmsg);
+        }
+      }
+      
+    });
+  })
+  
+
+
+</script>
+</html>

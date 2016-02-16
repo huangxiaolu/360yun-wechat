@@ -11,7 +11,6 @@ export default class extends Base {
     //auto render template file index_index.html
     let allParams = this.get();
     let allPost = this.post();
-    console.log(allPost);
     let signature = allParams.signature;
     let timestamp = allParams.timestamp;
     let nonce = allParams.nonce;
