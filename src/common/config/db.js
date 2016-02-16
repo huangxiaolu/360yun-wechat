@@ -8,6 +8,15 @@ export default {
   log_sql: true,
   log_connect: true,
   adapter: {
+    // mysql: {
+    //   host: '127.0.0.1',
+    //   port: '',
+    //   database: 'share',
+    //   user: 'root',
+    //   password: '',
+    //   prefix: '',
+    //   encoding: 'utf8'
+    // },
     mysql: {
       host: '10.120.253.177',
       port: '3474',

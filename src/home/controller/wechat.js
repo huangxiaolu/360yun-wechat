@@ -18,8 +18,10 @@ export default class extends Base {
     async textAction(){
          var message = this.post();
          var msg = message.Content.trim();
-         let controllerInstance = this.controller("activity","");
-         controllerInstance.messages(msg);
+         let socketlist = thinkCache(thinkCache.WEBSOCKET);
+         socketlist.forEach((item)=>{
+           item.emit("messages", msg);
+         })
          this.reply('发送成功');
     }
 
