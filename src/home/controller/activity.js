@@ -32,7 +32,4 @@ export default class extends Base {
     this.emit("messages", "closed");
   }
 
-  messages(messages){
-    this.messagesAction(messages);
-  }
 }

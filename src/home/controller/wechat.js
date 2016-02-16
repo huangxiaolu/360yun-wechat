@@ -15,13 +15,16 @@ export default class extends Base {
         this.http.res.reply(message);
     }
 
-    async textAction(){
+    textAction(){
          var message = this.post();
          var msg = message.Content.trim();
-         let socketlist = thinkCache(thinkCache.WEBSOCKET);
+         //let controllerInstance = this.controller("activity","");
+         //this.action(controllerInstance, "messages")
+         //controllerInstance.messages(msg);
+         let socketlist = thinkCache(thinkCache.WEBSOCKET));
          socketlist.forEach((item)=>{
-           item.emit("messages", msg);
-         })
+            item.emit("messages", msg);
+         })  
          this.reply('发送成功');
     }
 
