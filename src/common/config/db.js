@@ -14,7 +14,7 @@ export default {
       database: 'share',
       user: 'root',
       password: '',
-      prefix: '',
+      prefix: '360CTA_',
       encoding: 'utf8'
     },
     mongo: {
