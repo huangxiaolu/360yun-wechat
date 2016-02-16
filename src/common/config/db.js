@@ -11,7 +11,7 @@ export default {
     mysql: {
       host: '10.120.253.177',
       port: '3474',
-      database: 'share',
+      database: 'songguangyu',
       user: 'songguangyu',
       password: 'Songguangyu2015',
       prefix: '360CTA_',
