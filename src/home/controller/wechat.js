@@ -21,7 +21,7 @@ export default class extends Base {
          //let controllerInstance = this.controller("activity","");
          //this.action(controllerInstance, "messages")
          //controllerInstance.messages(msg);
-         let socketlist = thinkCache(thinkCache.WEBSOCKET));
+         let socketlist = thinkCache(thinkCache.WEBSOCKET);
          socketlist.forEach((item)=>{
             item.emit("messages", msg);
          })  
