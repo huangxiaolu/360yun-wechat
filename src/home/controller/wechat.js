@@ -19,6 +19,7 @@ export default class extends Base {
          var message = this.post();
          var msg = message.Content.trim();
          let socketlist = thinkCache(thinkCache.WEBSOCKET);
+         console.log(socketlist);
          socketlist.forEach((item)=>{
            item.emit("messages", msg);
          })
