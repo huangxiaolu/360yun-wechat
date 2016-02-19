@@ -23,7 +23,7 @@ export default class extends Base {
          //controllerInstance.messages(msg);
          let socketlist = thinkCache(thinkCache.WEBSOCKET);
          socketlist.forEach((item)=>{
-            item.emit("messages", msg);
+            item.emit("messages", 11111);
          })  
          this.reply('发送成功');
     }

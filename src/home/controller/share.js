@@ -12,6 +12,10 @@ export default class extends Base {
   	let score = this.model("score");
   	let scoreData  = await score.where({current:"1"}).select();
   	this.assign("scoreData", scoreData[0]);
+    let socketlist = thinkCache(thinkCache.WEBSOCKET);
+     socketlist.forEach((item)=>{
+        item.emit("messages", 11111);
+     })
     this.display();
   }
 
