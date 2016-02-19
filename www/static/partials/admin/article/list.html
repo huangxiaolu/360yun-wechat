@@ -1,0 +1,12 @@
+<div class="">
+  	<h3>文章列表</h1>
+    <div class="container">
+     <ul>
+     	<li ng-repeat="item in items" >
+     		<div class="article-ctn content" ng-bind-html="item.content|marked"></div>
+     		<button ng-click="edit(item.id);">编辑</button>
+     		<button ng-click="delete();">删除</button>
+     	</li>
+     </ul>
+    </div>
+</div>
