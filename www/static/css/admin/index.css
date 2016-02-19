@@ -1,0 +1,13 @@
+@import url(/static/css/base/base.css);
+.admin_nav li{
+	float: left;
+	width: 30%;
+	height: 150px;
+	border: 1px solid #aaa;
+	margin-left: 10px;
+}
+.admin_nav li a {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
