@@ -1,19 +1,24 @@
 require.config({
-    paths: {
-        angular: '../../libs/angular/angular.min'
+	paths: {
+        marked: '../../libs/marked',
+        angular: '../../libs/angular-1.5.0/angular',
+        angularRoute: '../../libs/angular-1.5.0/angular-route'
     },
     shim: {
-        'angular' : {'exports' : 'angular'}
+    	'angular': {'exports': 'angular'},
+    	'angularRoute': {deps: ['angular']}
     },
     priority: [
-        "angular"
+    	"angular"
     ]
 });
 
-require(['angular',
-		 'app',
-         'controllers/add',
-         'routes'
+require([
+	'angular',
+	 'app',
+     'controllers/add',
+     'routes'
 ], function (angular) {
-    angular.bootstrap(document, ['app']);
+	angular.bootstrap(document, ['app']);
 });
+

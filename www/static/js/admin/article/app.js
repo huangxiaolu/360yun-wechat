@@ -1,3 +1,5 @@
-define(['angular'], function (angular) {
-	return angular.module('app', []);
+
+define(['angular', 'angularRoute'], function (angular, angularRoute) {
+	// console.log(angular, 1);
+    return angular.module('app', ['ngRoute']);
 });

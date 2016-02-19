@@ -1,7 +1,10 @@
-<div>
+<div class="markdown-ctn">
   	<h3>请使用markdown语法</h1>
     <div class="container">
-      <textarea id="editor" name="" id="" cols="30" rows="10" ng-model="content"></textarea>
-      <div id="result" ng-bind-html="content|marked"></div>
+
+      <input fileread="uploadme" type="file" accept="image/*">
+      <textarea id="editor" name="" id="" cols="30" rows="10" ng-model="content" ng-change="textChanged"></textarea>
+      <div class="article-ctn" id="result" ng-bind-html="content|marked"></div>
     </div>
+    <button class='submit' ng-click="submit();">提交</button>
 </div>
