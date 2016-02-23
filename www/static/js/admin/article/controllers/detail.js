@@ -11,7 +11,6 @@ define(['../app', 'marked'], function (app, marked) {
 				// cache: $templateCache
 			}).then(function (res) {
 				$scope.content = res.data.data.content || 'request failed';
-				console.log(res.data.data.content);
 				
 			});
 		};

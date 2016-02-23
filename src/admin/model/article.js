@@ -18,11 +18,13 @@ export default class extends think.model.base {
       update: true,
       readonly: false //只读，添加后不可修改
     }
-  }
+  };
+
   async getList() {
   	let data = await this.select();
   	return data;
   }
+
   async getDetail(id) {
     let data = await this.where({id: id}).select();
     return data;

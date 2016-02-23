@@ -25,7 +25,6 @@ define(['../app', 'marked', '../utils/upload'], function (app, marked, upload) {
 			});
 		};
 		$scope.uploadImg = function (e) {
-			console.log(e.file);
 			// var file = 
 			// upload(file);
 		};
@@ -33,7 +32,7 @@ define(['../app', 'marked', '../utils/upload'], function (app, marked, upload) {
 			$scope.content = '加载中';
 			$scope.detail();
 		} else {
-			$scope.content = 'hello world';
+			$scope.content = '>     请使用markdown语法';
 		}
 		$scope.uploadme = function () {
 			console.log('fileread');
