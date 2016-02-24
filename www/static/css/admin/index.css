@@ -15,7 +15,6 @@
 	-webkit-transition: transform 1.5s ease-out;
 }
 .admin_nav li:hover{
-	/*-webkit-transition: transform 1.5s ease-out;*/
 	transform:rotateY(180deg);
 }
 
