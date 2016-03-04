@@ -21,9 +21,18 @@ header img{
 }
 
 .main li{
-	height: 4rem;
+	height: 5rem;
 	text-align: left;
 	padding-left: 3rem;
+}
+
+.main li span{
+	line-height: 3rem;
+	margin-right: 10px;
+}
+
+.main li span input{
+	margin-right: 5px;
 }
 
 .main .submit{

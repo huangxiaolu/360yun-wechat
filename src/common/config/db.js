@@ -16,7 +16,7 @@ export default {
     //   password: '',
     //   prefix: '360CTA_',
     //   encoding: 'utf8'
-    // },
+    // }
     mysql: {
       host: '10.120.253.177',
       port: '3474',
