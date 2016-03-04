@@ -92,7 +92,6 @@
   // })
   $('#touxiang')[0].src= '/static/img/<%=scoreData.name%>.png';
   $('#touxiang')[0].onerror = function(){
-    alert(1);
         this.src = "/static/img/touxiang-default.jpg"
       }
   
@@ -104,7 +103,6 @@
     var count = 0;
     $('#aUl input:checked').each(function(j) {
       if($(this).prop('checked')) {
-        console.log($(this).val()*rank[j])
         count += $(this).val()*rank[j];
         i++;
       }
@@ -115,15 +113,7 @@
     }  else {
       count = (count/22).toFixed(2);
     }
-    // var count = 0;
-    // $('select').each(function(i){
-    //   count += parseInt($(this).val());
-    // });
 
-    // if(lock === 0) {
-      
-    //   return;
-    // }
 
     $.ajax({
       type: 'POST',
