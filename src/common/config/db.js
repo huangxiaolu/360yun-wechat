@@ -25,7 +25,6 @@ export default {
       password: 'Songguangyu2015',
       prefix: '360CTA_',
       encoding: 'utf8'
-    },
     }
   }
 };
