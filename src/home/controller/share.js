@@ -12,6 +12,7 @@ export default class extends Base {
   	let score = this.model("score");
   	let scoreData  = await score.where({current:"1"}).select();
   	this.assign("scoreData", scoreData[0]);
+    console.log(thinkCache(thinkCache.WEBSOCKET));
     this.display();
   }
 
