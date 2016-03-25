@@ -8,7 +8,7 @@ var instance = new thinkjs({
   RUNTIME_PATH: rootPath + path.sep + 'runtime',
   ROOT_PATH: rootPath,
   RESOURCE_PATH: __dirname,
-  UPLOAD_PATH: __dirname + "/upload",
+  UPLOAD_PATH: __dirname + "/resources",
   env: 'development'
 });
 //compile src/ to app/

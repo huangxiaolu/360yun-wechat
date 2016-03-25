@@ -1,7 +1,7 @@
 define(['../app', 'marked'], function (app, marked) {
-	return app.controller('detailCtrl', function ($scope, $http, $templateCache, $routeParams) {
+	return app.controller('detailCtrl', function ($scope, $http, $templateCache, $route, $routeParams) {
 		$scope.id = $routeParams.id;
-		console.log($scope.id);
+		$scope.$route = $route;
 		$scope.content = '加载中……';
 		$scope.detail = function () {
 			$http({
@@ -19,9 +19,5 @@ define(['../app', 'marked'], function (app, marked) {
 		};
 		$scope.detail();
 		
-	}).filter('marked', ['$sce',function ($sce) {
-		return function (input) {
-			return $sce.trustAsHtml(marked(input));
-		}
-	}]);;
+	});
 });

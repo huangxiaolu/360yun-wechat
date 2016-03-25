@@ -1,8 +1,23 @@
-<div class="markdown-ctn">
+<div class="">
+	<ng-include src="'/static/partials/admin/article/nav.html'"></ng-include>
     <div class="container">
-      <input fileread="uploadme" type="file" accept="image/*">
-      <textarea id="editor" name="" id="" cols="30" rows="10" ng-model="content" ng-change="textChanged" class="markdownTextarea"></textarea>
-      <div class="article-ctn" id="result" ng-bind-html="content|marked"></div>
+    	<div class="title-input">
+    		<input type="text" ng-model="title" placeholder="标题">
+    	</div>
+    	<div class="toolbar">
+    		<div class="img">
+                <input file-model="myFile" type="file" accept="image/*">
+                <img src="{{fileSrc}}" alt="图片">
+                <div>{{abc}}</div>
+                <button ng-click="uploadFile()">upload me</button>
+            </div>
+    	</div>
+     	<div class="markdown-ctn">
+     		<textarea id="editor" name="" id="" cols="30" rows="10" ng-model="content" ng-change="textChanged" class="markdownTextarea left"></textarea>
+     		<div class="article-ctn right" id="result" ng-bind-html="content|marked"></div>
+     	</div>
+     	<div class="btn-group">
+     		<button class='submit' ng-click="submit();">提交</button>
+     	</div>
     </div>
-    <button class='submit' ng-click="submit();">提交</button>
 </div>

@@ -1,7 +1,7 @@
 define(['../app', 'marked'], function (app, marked) {
-	return app.controller('listCtrl', function ($scope, $http, $templateCache) {
+	return app.controller('listCtrl', function ($scope, $http, $templateCache, $route) {
 		// $scope.items = [{name: 'A'}, {name: 'B'}];
-
+		$scope.$route = $route;
 		$scope.list = function () {
 			$http({
 				method: 'GET',
@@ -14,14 +14,9 @@ define(['../app', 'marked'], function (app, marked) {
 			});
 		};
 		$scope.edit = function (id) {
-			// alert(id);
 			location.href = '#/add/'+id;
 		};
 		$scope.list();
 		
-	}).filter('marked', ['$sce',function ($sce) {
-		return function (input) {
-			return $sce.trustAsHtml(marked(input));
-		}
-	}]);;
+	});
 });

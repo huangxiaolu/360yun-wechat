@@ -1,4 +1,6 @@
 <div>
+	<ng-include src="'/static/partials/admin/article/nav.html'"></ng-include>
+
     <div class="article-ctn" ng-bind-html="content|marked"></div>
     <button ng-click="edit();">编辑</button>
     <button ng-click="delete();">删除</button>

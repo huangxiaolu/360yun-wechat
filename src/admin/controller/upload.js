@@ -8,7 +8,7 @@ export default class extends base {
     async postAction(){
        let imghashModel = this.model('imghash');
        let http = this.http;
-       let file = this.file('image'); 
+       let file = this.file('file'); 
        let filepath = file.path;
        let basename = path.basename(filepath);
        //文件hash
@@ -22,7 +22,7 @@ export default class extends base {
        }
        let uploadPath = think.UPLOAD_PATH;
        fs.renameSync(filepath, uploadPath + '/images/' + basename);
-       return this.success({path: http.host + '/upload/images/' + basename});
+       return this.success({path: 'http://'+http.host + '/resources/images/' + basename});
     }
 
 }

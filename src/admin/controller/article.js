@@ -23,12 +23,14 @@ export default class extends Base {
     * addAction() {
       let http = this.http;
       let content = http.post('content');
+      let title = http.post('title');
       let model = this.model("article");
       try{
         yield model.startTrans();
         model.add({
           author_id: 2,
-          content: content
+          content: content,
+          title: title
         });
         yield model.commit();
         this.success();
@@ -43,12 +45,13 @@ export default class extends Base {
       let http = this.http;
       let content = http.post('content');
       let id = http.post('id');
-
+      let title = http.post('title');
       let model = this.model("article");
       try{
         yield model.startTrans();
         model.where({id: id}).update({
-          content: content
+          content: content,
+          title: title
         });
         yield model.commit();
         this.success();

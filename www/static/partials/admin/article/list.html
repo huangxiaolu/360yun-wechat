@@ -1,11 +1,12 @@
 <div class="">
-  	<h3>文章列表</h1>
+    <ng-include src="'/static/partials/admin/article/nav.html'"></ng-include>
     <div class="container">
      <ul>
      	<li ng-repeat="item in items" >
+            <h2 class="title">{{item.title}}</h2>
      		<div class="article-ctn content" ng-bind-html="item.content|marked"></div>
      		<button ng-click="edit(item.id);">编辑</button>
-     		<button ng-click="delete();">删除</button>
+     		<button ng-click="delete(item.id);">删除</button>
      	</li>
      </ul>
     </div>

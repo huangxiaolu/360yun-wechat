@@ -1,5 +1,8 @@
-
-define(['angular', 'angularRoute'], function (angular, angularRoute) {
-	// console.log(angular, 1);
-    return angular.module('app', ['ngRoute']);
+define(['angular', 'angularRoute', 'marked'], function (angular, angularRoute, marked) {
+    return angular.module('app', ['ngRoute'])
+    	.filter('marked', ['$sce',function($sce) {
+			return function (input) {
+				return $sce.trustAsHtml(marked(input));
+			}
+		}]);
 });
