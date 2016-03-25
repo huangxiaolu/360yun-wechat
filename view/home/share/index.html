@@ -9,86 +9,67 @@
 </head>
 <body>
   <header>
-      <img src="/static/img/<%=scoreData.name%>.png">
+      <img src="" id="touxiang">
       <h1><%=scoreData.name%></h1>
   </header>
   <div id="result" class="result"></div>
   <div class="main">
-    <ul>
+    <ul id="aUl">
       <li>
-        1、今天的演讲是否有深度？
-        <select>
-          <option>0分</option>
-          <option>20分</option>
-          <option>30分</option>
-          <option>40分</option>
-          <option>50分</option>
-          <option>60分</option>
-          <option>70分</option>
-          <option>80分</option>
-          <option>90分</option>
-          <option>100分</option>
-        </select>
+        1、演讲者准备充分<br>
+        <span><input type="radio" name="1" value="1">1分</span>
+        <span><input type="radio" name="1" value="2">2分</span>
+        <span><input type="radio" name="1" value="3">3分</span>
+        <span><input type="radio" name="1" value="4">4分</span>
+        <span><input type="radio" name="1" value="5">5分</span>
       </li>
       <li>
-        2、今天的演讲流畅度怎么样？
-        <select>
-          <option>0分</option>
-          <option>20分</option>
-          <option>30分</option>
-          <option>40分</option>
-          <option>50分</option>
-          <option>60分</option>
-          <option>70分</option>
-          <option>80分</option>
-          <option>90分</option>
-          <option>100分</option>
-        </select>
+        2、演讲者口齿清晰，发音标准<br>
+        <span><input type="radio" name="2" value="1">1分</span>
+        <span><input type="radio" name="2" value="2">2分</span>
+        <span><input type="radio" name="2" value="3">3分</span>
+        <span><input type="radio" name="2" value="4">4分</span>
+        <span><input type="radio" name="2" value="5">5分</span>
       </li>
       <li>
-        3、今天的演讲让你学到了知识吗？
-        <select>
-          <option>0分</option>
-          <option>20分</option>
-          <option>30分</option>
-          <option>40分</option>
-          <option>50分</option>
-          <option>60分</option>
-          <option>70分</option>
-          <option>80分</option>
-          <option>90分</option>
-          <option>100分</option>
-        </select>
+        3、演讲者逻辑清晰，表达流畅<br>
+        <span><input type="radio" name="3" value="1">1分</span>
+        <span><input type="radio" name="3" value="2">2分</span>
+        <span><input type="radio" name="3" value="3">3分</span>
+        <span><input type="radio" name="3" value="4">4分</span>
+        <span><input type="radio" name="3" value="5">5分</span>
       </li>
       <li>
-        4、开发系统的人帅不帅？
-        <select>
-          <option>0分</option>
-          <option>20分</option>
-          <option>30分</option>
-          <option>40分</option>
-          <option>50分</option>
-          <option>60分</option>
-          <option>70分</option>
-          <option>80分</option>
-          <option>90分</option>
-          <option>100分</option>
-        </select>
+        4、演讲者积极与观众互动（问答）<br>
+        <span><input type="radio" name="4" value="1">1分</span>
+        <span><input type="radio" name="4" value="2">2分</span>
+        <span><input type="radio" name="4" value="3">3分</span>
+        <span><input type="radio" name="4" value="4">4分</span>
+        <span><input type="radio" name="4" value="5">5分</span>
       </li>
       <li>
-        5、今天的演讲者是否很帅？
-        <select>
-          <option>0分</option>
-          <option>20分</option>
-          <option>30分</option>
-          <option>40分</option>
-          <option>50分</option>
-          <option>60分</option>
-          <option>70分</option>
-          <option>80分</option>
-          <option>90分</option>
-          <option>100分</option>
-        </select>
+        5、演讲者时间掌控好（没有严重超时）<br>
+        <span><input type="radio" name="5" value="1">1分</span>
+        <span><input type="radio" name="5" value="2">2分</span>
+        <span><input type="radio" name="5" value="3">3分</span>
+        <span><input type="radio" name="5" value="4">4分</span>
+        <span><input type="radio" name="5" value="5">5分</span>
+      </li>
+      <li>
+        6、演讲内容或者形式富有新意<br>
+        <span><input type="radio" name="6" value="1">1分</span>
+        <span><input type="radio" name="6" value="2">2分</span>
+        <span><input type="radio" name="6" value="3">3分</span>
+        <span><input type="radio" name="6" value="4">4分</span>
+        <span><input type="radio" name="6" value="5">5分</span>
+      </li>
+      <li>
+        7、演讲内容对工作有帮助或启发<br>
+        <span><input type="radio" name="7" value="1">1分</span>
+        <span><input type="radio" name="7" value="2">2分</span>
+        <span><input type="radio" name="7" value="3">3分</span>
+        <span><input type="radio" name="7" value="4">4分</span>
+        <span><input type="radio" name="7" value="5">5分</span>
       </li>
     </ul>
     <div class="remark">
@@ -106,26 +87,39 @@
 <script type="text/javascript">
   var lock = 0;
 
-  $('select').change(function() {
-    lock = 1;
-  })
-
+  // $('#aUl li').change(function() {
+  //   lock = 1;
+  // })
+  $('#touxiang')[0].src= '/static/img/<%=scoreData.name%>.png';
+  $('#touxiang')[0].onerror = function(){
+        this.src = "/static/img/touxiang-default.jpg"
+      }
+  
   $('#submit').on('click',function() {
-    var count = 0;
-    $('select').each(function(i){
-      count += parseInt($(this).val());
-    });
 
-    if(lock === 0) {
-      alert('小伙，啥都没填，能不能不闹！！');
-      return;
+    var i = 0;
+    var rank = [4,2,4,2,2,4,4];
+    var rankTotal = 22;
+    var count = 0;
+    $('#aUl input:checked').each(function(j) {
+      if($(this).prop('checked')) {
+        count += $(this).val()*rank[j];
+        i++;
+      }
+    })
+    if(i != 7) {
+      alert('小兄弟，内容要填全啊！');
+      return
+    }  else {
+      count = (count/22).toFixed(2);
     }
+
 
     $.ajax({
       type: 'POST',
-      url: './makescore',
+      url: './share/makescore',
       data: {
-        score: count/5,
+        score: count,
         remark: $('#remark').val()
       },
       dataType: 'json',

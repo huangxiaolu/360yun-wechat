@@ -1,0 +1,41 @@
+html {
+	font-size: 62.5%;/*10 ÷ 16 × 100% = 62.5%*/
+}
+body {
+	font-size: 1.4rem;/*1.4 × 10px = 14px */
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	font-family: "Arial, Helvetica, sans-serif";
+}
+ul,h1,h2,h3,h4,h5,p{
+	padding: 0;
+	margin: 0;
+	font-weight: normal;
+}
+em{
+	font-style: normal;
+}
+li,i{
+	list-style: none;
+	font-style: none;
+}
+b{
+	font-weight: normal;
+}
+a{
+	text-decoration: none;
+	-webkit-tap-highlight-color: transparent;
+}
+/* 触发 hasLayout */ 
+.fn-clear:after{
+  content: ""; 
+  display: block; 
+  height: 0; 
+  clear: both; 
+  visibility: hidden;  
+  }
+
+.fn-clear {
+  zoom: 1; 
+ }
