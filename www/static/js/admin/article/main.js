@@ -1,6 +1,8 @@
 require.config({
 	paths: {
         marked: '../../libs/marked',
+        EXIF: '../../libs/exif',
+        Rotate: '../../libs/rotate',
         angular: '../../libs/angular-1.5.0/angular',
         angularRoute: '../../libs/angular-1.5.0/angular-route'
     },
@@ -15,9 +17,9 @@ require.config({
 
 require([
 	'angular',
-	 'app',
-     'controllers/add',
-     'routes'
+	'app',
+    'controllers/add',
+    'routes'
 ], function (angular) {
 	angular.bootstrap(document, ['app']);
 });

@@ -18,11 +18,10 @@ define(['../app', 'marked', '../utils/upload'], function (app, marked, upload) {
 		};
 		$scope.uploadFile = function () {
 			var file = $scope.myFile;
-			console.log('file is ');
-			console.dir(file);
 			var uploadUrl = '/admin/upload/post';
 			fileUpload.uploadFileToUrl(file, uploadUrl).success(function(resp) {
 				console.log(resp.data.path);
+				
 			})
 			.error(function() {
 				
@@ -34,6 +33,6 @@ define(['../app', 'marked', '../utils/upload'], function (app, marked, upload) {
 		} else {
 			$scope.content = '>     请使用markdown语法';
 		}
-		console.log($scope);
+		// console.log($scope);
 	});
 });
